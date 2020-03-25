@@ -1,0 +1,10 @@
+library(quantmod)
+library(plyr)
+library(TTR)
+library(ggplot2)
+library(scales)
+library(tseries)
+Daily_adjclose=data_Daily$Adj.Close
+Daily_adjclose=diff(Daily_adjclose)/Daily_adjclose[-length(Daily_adjclose)]
+Daily_adjclose[Daily_adjclose=="NaN"]=0
+Daily_adjclose[Daily_adjclose=="Inf"]=0
